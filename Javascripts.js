@@ -1,7 +1,7 @@
 /* Javascripts.js - shared script for Index and Log in pages */
 
 // Replace with your Google OAuth Client ID
-const GOOGLE_CLIENT_ID = 'REPLACE_WITH_CLIENT_ID.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID = '414372901780-teomd9sqcjfs2carhmv3a4j9rt2pk4gh.apps.googleusercontent.com';
 
 // Play a short "ting" using Web Audio
 function playTing(duration = 160, freq = 1200) {
