@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My Website - Login</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; padding: 2rem; }
+        .login-box { max-width: 360px; margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+        label { display:block; margin-top: 0.5rem; }
+        input[type="email"], input[type="password"] { width:100%; padding:8px; margin-top:4px; box-sizing:border-box; }
+        button { margin-top: 1rem; padding: 0.6rem 1rem; }
+        .message { margin-top: 1rem; font-weight: bold; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <header class="site-header" style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+        <img src="logo.svg" alt="My Website logo" style="width:48px;height:48px;display:block;">
+        <div>
+            <h1 style="margin:0;">Welcome to First Website!</h1>
+            <h2 style="margin:0;font-weight:normal;font-size:1rem;">Log in to continue the website!</h2>
+        </div>
+    </header>
+
+    <div class="login-box">
+        <form id="loginForm" novalidate>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Log In</button>
+        </form>
+
+        <div id="message" class="message" aria-live="polite"></div>
+
+        <!-- Google Sign-In demo -->
+        <div id="gSignIn" style="margin-top:0.75rem;"></div>
+        <div id="googleProfile" style="margin-top:0.5rem;"></div>
+        <button id="googleSignOut" style="display:none; margin-top:0.5rem;">Sign out</button>
+    </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer onload="if(window.initGoogle) window.initGoogle()"></script>
+
+    <script src="Javascripts.js" defer></script>
+</body>
+</html>
