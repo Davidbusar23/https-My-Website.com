@@ -62,13 +62,22 @@ function handleCredentialResponse(response) {
 window.handleCredentialResponse = handleCredentialResponse;
 
 // Initialize Google Identity Services button
+console.log('Javascripts.js loaded. GOOGLE_CLIENT_ID=', GOOGLE_CLIENT_ID);
 function initGoogle() {
-  if (window.google && google.accounts && google.accounts.id && !window._gsiInitialized) {
-    google.accounts.id.initialize({ client_id: GOOGLE_CLIENT_ID, callback: window.handleCredentialResponse });
-    const el = document.getElementById('gSignIn');
-    if (el) google.accounts.id.renderButton(el, { theme: 'outline', size: 'large' });
-    google.accounts.id.prompt();
-    window._gsiInitialized = true;
+  console.log('initGoogle called; GOOGLE_CLIENT_ID=', GOOGLE_CLIENT_ID, 'window.google=', !!window.google);
+  try {
+    if (window.google && google.accounts && google.accounts.id && !window._gsiInitialized) {
+      google.accounts.id.initialize({ client_id: GOOGLE_CLIENT_ID, callback: window.handleCredentialResponse });
+      const el = document.getElementById('gSignIn');
+      if (el) google.accounts.id.renderButton(el, { theme: 'outline', size: 'large' });
+      google.accounts.id.prompt();
+      window._gsiInitialized = true;
+      console.log('GSI initialized');
+    } else {
+      console.log('GSI not initialized: missing google.accounts or already initialized');
+    }
+  } catch (err) {
+    console.error('GSI init error', err);
   }
 }
 window.initGoogle = initGoogle;
